@@ -1,24 +1,20 @@
 # youtube-project
 
-## Project setup
-```
-npm install
-```
+### Vue CLI를 이용한 프로젝트
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
+![image-20210511225350403](README.assets/image-20210511225350403.png)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+﻿
+
+﻿
+
+**[main]**
+
+![image.png](README.assets/image.png)
+
+**[검색화면]**
+
+﻿![image2](README.assets/image2.png)
+
