@@ -1,0 +1,56 @@
+<template>
+<!-- 클릭하면 selectVideo실행 -->
+    <li class="list-group-item" @click="selectVideo">
+      <img :src=youtubeImageSrc alt="youtube-thumbnail-img">
+      {{ video.snippet.title | stringUnescape }}
+    </li>
+  
+</template>
+
+<script>
+// 글자 깨짐 방지
+import _ from 'lodash'
+
+export default {
+  name: 'VideoListItem',
+  props : {
+    video: {
+      type: Object,
+    }
+  },
+  // 글자 깨짐 방지
+  filters: {
+    stringUnescape: function (rawText) {
+      return _.unescape(rawText)
+    } 
+  },
+  methods: {
+    // data와 함께 보냄
+    selectVideo: function () {
+      this.$emit('select-video', this.video)
+    }
+  },
+  computed: {
+    youtubeImageSrc: function () {
+      return this.video.snippet.thumbnails.default.url
+    }
+  }
+}
+</script>
+
+<style>
+.list-group .list-group-item {
+  display: flex;        /* 가로 배치 및 flex의 CSS 적용 */
+  margin-bottom: 1rem;  /* item의 상하 여백 */
+  cursor: pointer;      /* 마우스를 포인터로 변경 */
+}
+
+.list-group .list-group-item:hover {
+  background: #eee;
+}
+
+.list-group .list-group-item img {
+  height: fit-content;   /* 텍스트가 길어져도 이미지는 늘어나지 않게 설정 */
+  margin-right: 0.5rem;  /* 이미지와 텍스트 사이의 여백 */
+}
+</style>
